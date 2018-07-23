@@ -1,4 +1,5 @@
 const int fndled[8] = {5, 6, 9, 8, 7, 4, 3, 10};
+const int button = 12;
 
 const int fndArray[10][7] = {
   {1,1,1,1,1,1,0},    //0
@@ -39,12 +40,15 @@ void setup() {
   pinMode(fndled[5], OUTPUT);
   pinMode(fndled[6], OUTPUT);
   pinMode(fndled[7], OUTPUT);
+  pinMode(button, INPUT);
 }
 
+int i = 0;
 void loop() {
-  for(int i = 0; i < 10; i++){
-    NumLight(fndArray[i]);
-    delay(500);
-    Clear();
+  NumLight(fndArray[i]);
+  if(digitalRead(button) == HIGH){
+    delay(300);
+    if(i >= 9){i = 0;}
+    else{i++;}
   }
 }
