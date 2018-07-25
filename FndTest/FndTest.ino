@@ -1,4 +1,4 @@
-const int fndled[8] = {5, 6, 9, 8, 7, 4, 3, 10};
+const int fndled[7] = {5, 6, 9, 8, 7, 4, 3};
 const int button = 12;
 
 const int fndArray[10][7] = {
@@ -15,13 +15,13 @@ const int fndArray[10][7] = {
 };
 
 void NumLight(int* farray){
-  for(int i = 0; i < 7; i++){
+  for(int i = 0; i < 6; i++){
     digitalWrite(fndled[i], Change(farray[i]));
   }
 }
 
 void Clear(){
-  for(int i = 0; i < 8; i++){
+  for(int i = 0; i < 6; i++){
     digitalWrite(fndled[i], LOW);
   }
 }
